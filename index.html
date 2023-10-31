@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<title>四川事业单位历年岗位及进面分数查询系统_成都考拉上岸</title>
+		<meta content="四川事业单位,四川事业单位招聘考试" name="Keywords" />
+		<meta content="四川事业单位招聘考试岗位匹配及进面分数查询系统，帮助大家快速检索自己专业在2022招聘情况及23年招考职位" name="Description" />
+		<link href="./css/index.css" rel="stylesheet" type="text/css" />
+		<link href="./css/public.css" rel="stylesheet" type="text/css" />
+		<link href="./css/style.css" rel="stylesheet" type="text/css" />
+		<link href="./css/xcConfirm.css" rel="stylesheet" />
+		<script src="./js/jquery.min.js"></script>
+		<script charset="utf-8" src="./js/xcConfirm.js" type="text/javascript"></script>
+		<script src="./js/bootstrap-typeahead.js" type="text/javascript"></script>
+		<script src="./js/prettify.js" type="text/javascript"></script>
+		<script src="./js/data.js" type="text/javascript"></script>
+		<script type="text/javascript" src="./js/ds_list.js"></script>
+		<script charset="utf-8" src="./js/jquery.cookie.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			function browserRedirect() {
+				var sUserAgent = navigator.userAgent.toLowerCase();
+				var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+				var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+				var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+				var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+				var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+				var bIsAndroid = sUserAgent.match(/android/i) == "android";
+				var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+				var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+				if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+					window.location.href = '#';
+				} else {}
+			}
+			browserRedirect();
+		</script>
+	</head>
+	<body>
+		<div class="homePage">
+			<div class="top_wrap">
+				<div class="top">
+					<a class="logo" href="https://www.kaolaup.com/" target="_blank">
+						<img src="./img/logo.png" />
+					</a>
+					<!-- <div class="btn_wrap">
+						<a class="login_btn" href="javascript:void(0)">
+							<img src="./img/people_icon1.png" />
+							登录
+						</a>
+						<a class="register_btn" href="javascript:void(0)">
+							<img src="./img/people_icon2.png" />
+							注册
+						</a>
+					</div> -->
+				</div>
+			</div>
+			<div class="home_con clearfix">
+				<h1 class="home_title">
+					<img alt="四川事业单位进面分数查询" src="./img/title_img.png" />
+				</h1>
+				<div class="con_wrap">
+					<div class="user-box clearfloat">
+						<div class="user-item user-item-x">
+							<select name="year" id="year">
+								<option value="">年份</option>
+								<option value="2023">2023</option>
+								<option value="2022">2022</option>
+							</select>
+						</div>
+						<div class="user-item">
+							<select name="address" id="address">
+								<option value="">请选择地市</option>
+								<option value="省属">省属</option>
+								<option value="成都">成都</option>
+								<option value="自贡">自贡</option>
+								<option value="攀枝花">攀枝花</option>
+								<option value="泸州">泸州</option>
+								<option value="德阳">德阳</option>
+								<option value="绵阳">绵阳</option>
+								<option value="广元">广元</option>
+								<option value="遂宁">遂宁</option>
+								<option value="内江">内江</option>
+								<option value="乐山">乐山</option>
+								<option value="南充">南充</option>
+								<option value="眉山">眉山</option>
+								<option value="宜宾">宜宾</option>
+								<option value="广安">广安</option>
+								<option value="达州">达州</option>
+								<option value="雅安">雅安</option>
+								<option value="巴中">巴中</option>
+								<option value="资阳">资阳</option>
+								<option value="阿坝">阿坝</option>
+								<option value="甘孜">甘孜</option>
+								<option value="凉山">凉山</option>
+								<option value="不限">不限</option>
+							</select>
+						</div>
+						<div class="user-item">
+							<select id="dixian" name="dixian">
+								<option value="">工作区县</option>
+							</select>
+						</div>
+						<div class="user-item">
+							<select id="xuel" name="areaname">
+								<option value="">学历层次</option>
+								<option value="研究生">研究生</option>
+								<option value="本科">本科</option>
+								<option value="大专">大专</option>
+								<option value="中专">中专</option>
+							</select>
+						</div>
+						<div class="user-item user-item-1">
+							<input autocomplete="off" class="user-content" id="professional" placeholder="请输入专业名" />
+						</div>
+						<div class="user-item user-item-2">
+							<button class="btn btn-submit" id="submit">
+								点击查询
+							</button>
+						</div>
+					</div>
+					<div class="table_wrap">
+					</div>
+				</div>
+				<!-- <p class="tip_x">
+					温馨提示:如果您是第一次使用本系统,请先点击右上角选择登录或者注册一个帐号。
+				</p> -->
+			</div>
+		</div>
+		<div class="zg_cover">
+		</div>
+		<!-- 登录 注册弹框 END-->
+		<div class="zg_direction">
+			<span class="direction_close">
+			</span>
+			<h6>
+				系统使用说明
+			</h6>
+			<ul class="direction_list">
+				<li>
+					1.本系统收录了2023、2022年四川事业单位及不限专业岗职位表各岗位进面分数线，旨在帮助大家备考2024事业单位考试，了解您的专业能报考的岗位以及在近几年所匹配到的职位以及该职位的进面分数线，让您做到心中有数，及早备考！
+				</li>
+				<li>
+					2.本系统是根据您的自身条件去匹配2022、2023年您能够报考的职位，若无匹配项，可换个专业关键词继续查询!
+				</li>
+				<li>
+					3.本系统不收费，旨在为广大考生提供便利，但考虑到服务器压力，需要验证身份，方可查询，祝您早日成功！
+				</li>
+				<li>
+					4.请尽量使用谷歌、火狐浏览器或者使用360浏览器、搜狗浏览器、QQ浏览器极速版，来提升您的使用体验！
+				</li>
+				<li>
+					5.如果您在使用过程中遇到了问题，请点击
+					<a href="https://work.weixin.qq.com/kfid/kfcb10ea5c7832830f6" rel="nofollow"
+						style="cursor: pointer;">在线咨询</a>
+					。
+				</li>
+			</ul>
+			<span class="direction_know">
+				我知道了
+			</span>
+		</div>
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,800,900" rel="stylesheet" type="text/css" />
+		<svg display="none">
+			<symbol height="31.665px" id="codepen" style="enable-background:new 0 0 31.665 31.665;" version="1.1"
+				viewbox="0 0 31.665 31.665" width="31.665px" x="0px" xml:space="preserve"
+				xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" y="0px">
+				<g>
+					<path d="M16.878,0.415c-0.854-0.565-1.968-0.552-2.809,0.034L1.485,9.214c-0.671,0.468-1.071,1.233-1.071,2.052v9.444
+
+            c0,0.84,0.421,1.623,1.122,2.086l12.79,8.455c0.836,0.553,1.922,0.553,2.758,0l13.044-8.618c0.7-0.463,1.122-1.246,1.122-2.086
+
+            v-9.279c0-0.839-0.421-1.622-1.121-2.085L16.878,0.415z M26.621,10.645l-4.821,3.237l-4.521-3.288L17.25,4.127L26.621,10.645z
+
+             M13.979,4.133v6.329l-4.633,3.24l-4.621-3.099L13.979,4.133z M3.458,13.722l2.991,2.004l-2.991,2.093V13.722z M14.058,27.215
+
+            l-9.331-6.258l4.661-3.258l4.67,3.133V27.215z M12.286,15.674l3.021-2.113l3.519,2.313l-3.119,2.095L12.286,15.674z M17.354,27.215
+
+            V20.83l4.463-2.991l4.805,3.159L17.354,27.215z M27.954,17.927l-3.168-2.082l3.168-2.125V17.927z">
+					</path>
+				</g>
+			</symbol>
+			<symbol id="twitter" style="enable-background:new 0 0 612 612;" version="1.1" viewbox="0 0 612 612" x="0px"
+				xml:space="preserve" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"
+				y="0px">
+				<g>
+					<g>
+						<path d="M612,116.258c-22.525,9.981-46.694,16.75-72.088,19.772c25.929-15.527,45.777-40.155,55.184-69.411
+
+                c-24.322,14.379-51.169,24.82-79.775,30.48c-22.907-24.437-55.49-39.658-91.63-39.658c-69.334,0-125.551,56.217-125.551,125.513
+
+                c0,9.828,1.109,19.427,3.251,28.606C197.065,206.32,104.556,156.337,42.641,80.386c-10.823,18.51-16.98,40.078-16.98,63.101
+
+                c0,43.559,22.181,81.993,55.835,104.479c-20.575-0.688-39.926-6.348-56.867-15.756v1.568c0,60.806,43.291,111.554,100.693,123.104
+
+                c-10.517,2.83-21.607,4.398-33.08,4.398c-8.107,0-15.947-0.803-23.634-2.333c15.985,49.907,62.336,86.199,117.253,87.194
+
+                c-42.947,33.654-97.099,53.655-155.916,53.655c-10.134,0-20.116-0.612-29.944-1.721c55.567,35.681,121.536,56.485,192.438,56.485
+
+                c230.948,0,357.188-191.291,357.188-357.188l-0.421-16.253C573.872,163.526,595.211,141.422,612,116.258z">
+						</path>
+					</g>
+				</g>
+			</symbol>
+		</svg>
+		<main>
+			<canvas class="plane-canvas" id="plane-canvas">
+			</canvas>
+			<canvas class="main-canvas" id="main-canvas">
+			</canvas>
+			<div class="mouse" id="mouse">
+				成都考拉上岸教育咨询有限公司
+			</div>
+			<div class="plate">
+				<h2 class="text-animation" data-js="text">
+					Job Matching Of KaolaEdu
+				</h2>
+				<p class="text-animation" data-js="text">
+					Recruitment Examination
+				</p>
+			</div>
+		</main>
+		<!-- 背景 -->
+		<div id="slideshow">
+			<img alt="Slideshow Image 3" class="active" src="./img/image3.jpg">
+			</img>
+		</div>
+		<!-- 背景 END-->
+		<script src="./js/index.js"></script>
+		<script src="./js/zw_date.js"></script>
+		<script src="./js/searchphp.js?434"></script>
+		<script src="./js/canvas.js"></script>
+	</body>
+</html>
