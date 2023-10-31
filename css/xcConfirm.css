@@ -1,0 +1,19 @@
+/*垂直居中*/
+.verticalAlign{ vertical-align:middle; display:inline-block; height:100%; margin-left:-1px;}
+.xcConfirm .xc_layer{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #666666; opacity: 0.5; z-index: 2147000000;}
+.xcConfirm .popBox{position: fixed; left: 50%; top: 50%; background-color: #ffffff; z-index: 2147000001; width:490px; min-height:180px; padding-bottom:14px; margin-left: -245px; margin-top: -180px; border-radius: 5px; color: #535e66; border-radius:10px;}
+.xcConfirm .popBox .ttBox{ background:#ef2d36; height: 30px; line-height: 30px; padding: 14px 30px; border-bottom: solid 1px #ef2d36; color:#FFF;border-radius:10px 10px 0 0;}
+.xcConfirm .popBox .ttBox .tt{ display: block; float: left; height: 30px; position: relative;font-size: 18px;font-weight:bold;}
+.xcConfirm .popBox .txtBox{ width:80%; margin:20px auto; }
+.xcConfirm .popBox .ttBox .clsBtn{display: block; cursor: pointer; width: 16px; height: 16px; position: absolute; top: 22px; right: 30px; background: url(../img/zg_icon_cls.jpg) no-repeat;}
+.xcConfirm .popBox .txtBox .bigIcon{float: left; margin-right: 20px; width: 48px; height: 48px; background-image: url(../img/icons.png); background-repeat: no-repeat; background-position: 48px 0;}
+.xcConfirm .popBox .txtBox .txtCon{ margin: 20px auto; line-height: 26px; overflow-x: hidden; overflow-y: auto;font-size:20px;text-align:center}
+.xcConfirm .popBox .txtBox .txtCon input{width: 364px; height: 30px; border: solid 1px #ef2d36; font-size: 16px; margin-top: 6px;}
+.xcConfirm .popBox .txtBox .txtCon a{ color:#E60012 }
+.xcConfirm .popBox .btnArea{border-top: solid 1px #eef0f1;}
+.xcConfirm .popBox .btnGroup{float: right;}
+.xcConfirm .popBox .btnGroup .sgBtn{margin-top: 14px; margin-right: 10px;}
+.xcConfirm .popBox .sgBtn{display: block; cursor: pointer; float: left; width: 95px; height: 35px; line-height: 35px; text-align: center; color: #FFFFFF; border-radius: 5px;}
+.xcConfirm .popBox .sgBtn.ok{background-color: #ef2d36; color: #FFFFFF;}
+.xcConfirm .popBox .sgBtn.cancel{background-color: #FFF; border:1px solid #ccc; color: #999;}
+.xcConfirm .popBox .txtBox .txtCon .red{ color:#E60012 }
