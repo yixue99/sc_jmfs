@@ -143,11 +143,11 @@ function templateDo(jsonData) {
 						  <th class="th1">地市区县</th>\
 	                      <th class="th2">专业</th>\
 						  <th class="th3">学历</th>\
-	                      <th class="th4">单位名称</th>\
+	                      <th class="th4">单位</th>\
 	                      <th class="th5">岗位</th>\
 	                      <th class="th6">人数</th>\
-	                      <th class="th7">其它</th>\
-	                      <th class="th8">进面比例</th>\
+	                      <th class="th7">公告</th>\
+	                      <th class="th8">类别</th>\
 	                      <th class="th9">进面最低分</th>\
 						  <th class="th10">进面最高分</th>\
 	                  </tr>';
@@ -157,13 +157,13 @@ function templateDo(jsonData) {
 			htmls += '<td>' + obj.item02 + obj.item03 +'</td>';
 			htmls += '<td>' + obj.item04 + '</td>';
 			htmls += '<td>' + obj.item05 + '</td>';
-			htmls += '<td>' + obj.item09 + '</td>';
-			htmls += '<td>' + obj.item10 + '</td>';
 			htmls += '<td>' + obj.item08 + '</td>';
-			htmls += '<td>' + obj.item19 + '</td>';
-			htmls += '<td>' + obj.item16 + '</td>';
-			htmls += '<td>' + obj.item17 + '</td>';
-			htmls += '<td>' + obj.item18 + '</td>';
+			htmls += '<td>' + obj.item09 + '</td>';
+			htmls += '<td>' + obj.item07 + '</td>';
+			htmls += '<td>' + obj.item06 + '</td>';
+			htmls += '<td>' + obj.item11 + '</td>';
+			htmls += '<td>' + obj.item14 + '</td>';
+			htmls += '<td>' + obj.item15 + '</td>';
 			htmls += '</tr>'
 		}
 		htmls += '</table>';
