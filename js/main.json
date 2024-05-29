@@ -1,0 +1,42 @@
+{
+    "control": true,
+	"password": "826826",
+    "about": "\n此脚本仅限学习交流，如有侵权，请联系作者删除\n（公众号：pink1pig， Email:sd35@foxmail.com)\n\nThis script is only for learning and communication. \nIn case of infringement, please contact the author to delete it \n(official account: pink1pig, email: sd35@foxmail.com)",
+	"wr_tts": {
+		"control": true,
+		"password": "yixue99",
+        "users": ["yd44450"],
+		"warn": "program code:https://github.com/skygongque/tts/tree/main/python_cli_demo author:skygongque \n此脚本仅限学习交流，如有侵权，请联系作者删除（公众号：pink1pig， Email:sd35@foxmail.com)\nThis script is only for learning and communication. In case of infringement, please contact the author to delete it (official account: pink1pig, email: sd35@foxmail.com)"
+	},
+	"crm_hd": {
+		"control": true,
+		"password": "yixue99",
+        "users": ["lmj5983"],
+		"warn": "*每天固定时间段线上自动授权，如下载数据失败可联系小宋发送crmsq重新上传授权"
+	},
+	"qqsq": {
+		"control": true,
+		"password": "yixue99",
+        "users": ["sdd19201", "sdd61534"],
+		"warn": ">>>查看主页<<<"
+	},
+	"video_dow": {
+		"control": true,
+		"password": "yixue99",
+        "users": ["sdd19201", "sdd61534"],
+		"warn": "本插件目前仅支持抖音、快手、小红书视频无水印下载"
+	}
+    ,
+	"qun_dow": {
+		"control": true,
+		"password": "yixue99",
+        "users": ["sdd19201", "sdd61534"],
+		"warn": "*"
+	},
+	"qun_del": {
+		"control": true,
+		"password": "yixue99",
+        "users": ["sdd19201", "sdd61534"],
+		"warn": "*"
+	}
+    }
