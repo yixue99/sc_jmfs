@@ -15,6 +15,18 @@ $(function() {
 			}
 		}
 	}
+	// 考试类型筛选
+	var menuName_include = function(item, target) {
+		if (item == "不限") {
+			return true
+		} else {
+			if (target == item) {
+				return true
+			} else {
+				return false
+			}
+		}
+	}
 	// 工作地点筛选 地市
 	var address_include = function(item, target) {
 		if (item == '不限') {
@@ -42,22 +54,22 @@ $(function() {
 	// 学历筛选
 	var school_include = function(item, target) {
 		if (item == '中专') {
-			if (target.indexOf('中专') !== -1) {
+			if (target.indexOf('中专') !== -1 || target.indexOf('不限') !== -1) {
 				return true
 			} else {
 				return false
 			}
 		}
 		if (item == '大专') {
-			if (target.indexOf('中专') !== -1 || target.indexOf('大专') !== -1 || target.indexOf('专科') !== -1 ||
-				target.indexOf('普通全日制') !== -1) {
+			if (target.indexOf('中专') !== -1 || target.indexOf('大专') !== -1 || target.indexOf('专科') !== -1 || 
+				target.indexOf('不限') !== -1) {
 				return true
 			} else {
 				return false
 			}
 		} else if (item == '本科') {
 			if (target.indexOf('中专') !== -1 || target.indexOf('大专') !== -1 || target.indexOf('专科') !== -1 ||
-				target.indexOf('本科') !== -1 || target.indexOf('普通全日制') !== -1) {
+				target.indexOf('本科') !== -1 || target.indexOf('不限') !== -1) {
 				return true
 			} else {
 				return false
@@ -99,12 +111,17 @@ $(function() {
 	var clickfn = function() {
 		var attr = [];
 		var year = $('#year').val()
+		var menuName = $('#menuName').val()
 		var address = $('#address').val()
 		var dixian = $('#dixian').val()
 		var record = $('#xuel').val()
 		var professional = $('#professional').val()
 		if (year == "") {
 			alert('请选择年份!')
+			return;
+		}
+		if (menuName == "") {
+			alert('请选择考试类型!')
 			return;
 		}
 		if (address == "") {
@@ -124,11 +141,12 @@ $(function() {
 			return;
 		}
 		$.each(data_list, function(idx, obj) {
-			if (year_include(year, obj.item01) &&
+			if (year_include(year, obj.item12) &&
+				menuName_include(menuName, obj.item19) &&
 				address_include(address, obj.item02) &&
 				dixian_include(dixian, obj.item03) &&
-				professional_include(professional, obj.item04) &&
-				school_include(record, obj.item05)) {
+				professional_include(professional, obj.item10) &&
+				school_include(record, obj.item09)) {
 				attr.push(obj)
 			}
 		});
@@ -147,23 +165,21 @@ function templateDo(jsonData) {
 	                      <th class="th5">岗位</th>\
 	                      <th class="th6">人数</th>\
 	                      <th class="th7">公告</th>\
-	                      <th class="th8">类别</th>\
-	                      <th class="th9">进面最低分</th>\
-						  <th class="th10">进面最高分</th>\
+	                      <th class="th8">进面最低分</th>\
+						  <th class="th9">进面最高分</th>\
 	                  </tr>';
 		for (var j in jsonData) {
 			var obj = jsonData[j];
 			htmls += '<tr>'
 			htmls += '<td>' + obj.item02 + obj.item03 +'</td>';
+			htmls += '<td>' + obj.item10 + '</td>';
+			htmls += '<td>' + obj.item09 + '</td>';
 			htmls += '<td>' + obj.item04 + '</td>';
 			htmls += '<td>' + obj.item05 + '</td>';
 			htmls += '<td>' + obj.item08 + '</td>';
-			htmls += '<td>' + obj.item09 + '</td>';
-			htmls += '<td>' + obj.item07 + '</td>';
-			htmls += '<td>' + obj.item06 + '</td>';
-			htmls += '<td>' + obj.item11 + '</td>';
-			htmls += '<td>' + obj.item14 + '</td>';
+			htmls += '<td>' + obj.item13 + '</td>';
 			htmls += '<td>' + obj.item15 + '</td>';
+			htmls += '<td>' + obj.item16 + '</td>';
 			htmls += '</tr>'
 		}
 		htmls += '</table>';
