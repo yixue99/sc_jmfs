@@ -105,7 +105,7 @@ p.tip_x{
   position:relative;
 }
 .user-box .user-item{
-  width:160px;
+  width:120px;
   height:44px;
   float: left;
   margin-bottom: 15px;
@@ -115,7 +115,7 @@ p.tip_x{
   border-radius:8px;
 }
 .user-box .user-item.user-item-x{
-  width:157px;
+  width:120px;
 }
 .user-box .user-item.user-item-x1{
   width:190px;
