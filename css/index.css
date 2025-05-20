@@ -121,7 +121,7 @@ p.tip_x{
   width:190px;
 }
 .user-box .user-item.user-item-1{
-  width:371px;
+  width:150px;
   color: #9a9a9a;
   padding-left:6px;
 }
@@ -130,6 +130,18 @@ p.tip_x{
   background: none;
   margin:0!important;
 }
+
+.user-box .user-item.user-item-3{
+  width:200px;
+  color: #9a9a9a;
+  padding-left:6px;
+}
+.user-box .user-item.user-item-3 input{
+  width:234px;
+  background: none;
+  margin:0!important;
+}
+
 .item_check{
   position: absolute;
   top:2px;
