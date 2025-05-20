@@ -29,6 +29,9 @@ $(function() {
 	}
 	// 工作地点筛选 地市
 	var address_include = function(item, target) {
+		if (item === "") {
+			return true; // 或根据需求返回 target === "不限"
+		}
 		if (item == '不限') {
 			return true
 		} else {
@@ -41,6 +44,9 @@ $(function() {
 	}
 	// 工作地点筛选 地县
 	var dixian_include = function(item, target) {
+		if (item === "") {
+			return true; // 或根据需求返回 target === "不限"
+		}
 		if (item == '不限') {
 			return true
 		} else {
@@ -53,6 +59,9 @@ $(function() {
 	}
 	// 学历筛选
 	var school_include = function(item, target) {
+		if (item === "") {
+			return true; // 或根据需求返回 target === "不限"
+		}
 		if (item == '中专') {
 			if (target.indexOf('中专') !== -1 || target.indexOf('不限') !== -1) {
 				return true
@@ -113,8 +122,11 @@ $(function() {
 			}
 			// 若未开启专业不限按钮  则直接判断 json数据的专业 是否包含已填写的专业名词
 		} else {
+			if (item === "") {
+				return true; // 或根据需求返回 target === "不限"
+			}
 			if (item != "") {
-				if (target.indexOf(item) !== -1) {
+				if (target.indexOf(item) !== -1 || target == "专业不限") {
 					return true
 				} else {
 					return false
@@ -139,22 +151,22 @@ $(function() {
 			alert('请选择考试类型!')
 			return;
 		}
-		if (address == "") {
-			alert('请选择地市!')
-			return;
-		}
-		if (dixian == "") {
-			alert('请选择区县!')
-			return;
-		}
-		if (professional == "") {
-			alert('请输入自己的专业！');
-			return false;
-		}
-		if (record == "") {
-			alert('请选择学历!')
-			return;
-		}
+		// if (address == "") {
+		// 	alert('请选择地市!')
+		// 	return;
+		// }
+		// if (dixian == "") {
+		// 	alert('请选择区县!')
+		// 	return;
+		// }
+		// if (professional == "") {
+		// 	alert('请输入自己的专业！');
+		// 	return false;
+		// }
+		// if (record == "") {
+		// 	alert('请选择学历!')
+		// 	return;
+		// }
 		$.each(data_list, function(idx, obj) {
 			if (year_include(year, obj.item12) &&
 				menuName_include(menuName, obj.item19) &&
