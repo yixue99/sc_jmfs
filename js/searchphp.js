@@ -61,7 +61,7 @@ $(function() {
 			}
 		}
 		if (item == '大专') {
-			if (target.indexOf('中专') !== -1 || target.indexOf('大专') !== -1 || target.indexOf('专科') !== -1 || 
+			if (target.indexOf('中专') !== -1 || target.indexOf('大专') !== -1 || target.indexOf('专科') !== -1 ||
 				target.indexOf('不限') !== -1) {
 				return true
 			} else {
@@ -78,6 +78,20 @@ $(function() {
 			return true
 		}
 	}
+	// 单位筛选
+	var danwei_include = function(item, target) {
+		// 若单位输入为空，直接匹配所有单位（或根据需求调整逻辑）
+		if (item === "") {
+			return true; // 或根据需求返回 target === "不限"
+		}
+		// 若单位输入不为空，检查目标单位是否包含输入值或"不限"
+		if (target.indexOf(item) !== -1 || target.indexOf("不限") !== -1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	// 专业筛选
 	var professional_include = function(item, target) {
 		// 若开启专业不限按钮
@@ -116,6 +130,7 @@ $(function() {
 		var dixian = $('#dixian').val()
 		var record = $('#xuel').val()
 		var professional = $('#professional').val()
+		var danwei = $('#danwei').val()
 		if (year == "") {
 			alert('请选择年份!')
 			return;
@@ -146,17 +161,19 @@ $(function() {
 				address_include(address, obj.item02) &&
 				dixian_include(dixian, obj.item03) &&
 				professional_include(professional, obj.item10) &&
-				school_include(record, obj.item09)) {
-				attr.push(obj)
-			}
+				school_include(record, obj.item09) &&
+				danwei_include(danwei, obj.item04) // 新增单位筛选
+			) {attr.push(obj)}
 		});
-	templateDo(attr)
-}
-function templateDo(jsonData) {
-	if (jsonData.length == 0) {
-		var htmls = '<p class="result_tip">没有匹配的数据,请重新修改条件查询,或者换个专业关键词查询!</p>';
-	} else {
-		var htmls = '<table class="my_table">\
+		// console.log(attr)
+		templateDo(attr)
+	}
+
+	function templateDo(jsonData) {
+		if (jsonData.length == 0) {
+			var htmls = '<p class="result_tip">没有匹配的数据,请重新修改条件查询,或者换个专业关键词查询!</p>';
+		} else {
+			var htmls = '<table class="my_table">\
 	                  <tr>\
 						  <th class="th1">地市区县</th>\
 	                      <th class="th2">专业</th>\
@@ -168,77 +185,77 @@ function templateDo(jsonData) {
 	                      <th class="th8">进面最低分</th>\
 						  <th class="th9">进面最高分</th>\
 	                  </tr>';
-		for (var j in jsonData) {
-			var obj = jsonData[j];
-			htmls += '<tr>'
-			htmls += '<td>' + obj.item02 + obj.item03 +'</td>';
-			htmls += '<td>' + obj.item10 + '</td>';
-			htmls += '<td>' + obj.item09 + '</td>';
-			htmls += '<td>' + obj.item04 + '</td>';
-			htmls += '<td>' + obj.item05 + '</td>';
-			htmls += '<td>' + obj.item08 + '</td>';
-			htmls += '<td>' + obj.item13 + '</td>';
-			htmls += '<td>' + obj.item15 + '</td>';
-			htmls += '<td>' + obj.item16 + '</td>';
-			htmls += '</tr>'
+			for (var j in jsonData) {
+				var obj = jsonData[j];
+				htmls += '<tr>'
+				htmls += '<td>' + obj.item02 + obj.item03 + '</td>';
+				htmls += '<td>' + obj.item10 + '</td>';
+				htmls += '<td>' + obj.item09 + '</td>';
+				htmls += '<td>' + obj.item04 + '</td>';
+				htmls += '<td>' + obj.item05 + '</td>';
+				htmls += '<td>' + obj.item08 + '</td>';
+				htmls += '<td>' + obj.item13 + '</td>';
+				htmls += '<td>' + obj.item15 + '</td>';
+				htmls += '<td>' + obj.item16 + '</td>';
+				htmls += '</tr>'
+			}
+			htmls += '</table>';
 		}
-		htmls += '</table>';
+		$('.homePage').addClass('active')
+		$('.table_wrap').html('').append(htmls);
 	}
-	$('.homePage').addClass('active')
-	$('.table_wrap').html('').append(htmls);
-}
-$('#submit').click(function() {
-	clickfn()
-})
+	$('#submit').click(function() {
+		clickfn()
+	})
 
 
-// $('#submit').click(function() {
-// 	if ($.cookie('cookiePhone')) {
-// 		clickfn()
-// 	} else {
-// 		alert("请先注册或登录");
-// 		$('.zg_cover').show();
-// 		$('.container').show();
-// 	}
-// })
+	// $('#submit').click(function() {
+	// 	if ($.cookie('cookiePhone')) {
+	// 		clickfn()
+	// 	} else {
+	// 		alert("请先注册或登录");
+	// 		$('.zg_cover').show();
+	// 		$('.container').show();
+	// 	}
+	// })
 
-// $('.login_btn').click(function() {
-// 	if (submitswitch) {
-// 		alert('您已登陆!')
-// 	} else {
-// 		$('.zg_cover').show();
-// 		$('.container').show();
-// 		$('.bd_nav').find('span').removeClass('active').eq(0).addClass('active');
-// 		$('.container').find('.agileits').hide().eq(0).show();
-// 	}
-// }) 
-// $('.register_btn').click(function() {
-// 	if (submitswitch) {
-// 		alert('您已登陆!')
-// 	} else {
-// 		$('.zg_cover').show();
-// 		$('.container').show();
-// 		$('.bd_nav').find('span').removeClass('active').eq(1).addClass('active');
-// 		$('.container').find('.agileits').hide().eq(1).show();
-// 	}
-// })
+	// $('.login_btn').click(function() {
+	// 	if (submitswitch) {
+	// 		alert('您已登陆!')
+	// 	} else {
+	// 		$('.zg_cover').show();
+	// 		$('.container').show();
+	// 		$('.bd_nav').find('span').removeClass('active').eq(0).addClass('active');
+	// 		$('.container').find('.agileits').hide().eq(0).show();
+	// 	}
+	// }) 
+	// $('.register_btn').click(function() {
+	// 	if (submitswitch) {
+	// 		alert('您已登陆!')
+	// 	} else {
+	// 		$('.zg_cover').show();
+	// 		$('.container').show();
+	// 		$('.bd_nav').find('span').removeClass('active').eq(1).addClass('active');
+	// 		$('.container').find('.agileits').hide().eq(1).show();
+	// 	}
+	// })
 
-//点击专业不限按钮  切换 onswitch 布尔值  并触发查询函数
-$(".item_check").click(function() {
-	//  if(submitswitch){
-	$(this).toggleClass('active');
-	onswitch = !onswitch;
-	clickfn()
-	//  }else{
-	//    alert("请先注册或登录");
-	//    $('.zg_cover').show();
-	//    $('.container').show();
-	//  }
-	//  
-})
+	//点击专业不限按钮  切换 onswitch 布尔值  并触发查询函数
+	$(".item_check").click(function() {
+		//  if(submitswitch){
+		$(this).toggleClass('active');
+		onswitch = !onswitch;
+		clickfn()
+		//  }else{
+		//    alert("请先注册或登录");
+		//    $('.zg_cover').show();
+		//    $('.container').show();
+		//  }
+		//  
+	})
 
-$('.bd_close').click(function() {
-	$('.zg_cover').hide();
-	$('.container').hide();
-})
+	$('.bd_close').click(function() {
+		$('.zg_cover').hide();
+		$('.container').hide();
+	})
 })
